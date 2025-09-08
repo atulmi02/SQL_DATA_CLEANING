@@ -10,6 +10,7 @@ The workflow follows the systematic approach:-
 # PROJECT STEPS
 ## 1. Create Stage Tables
 Backed up raw data into staging table `layoff_staging`.
+
 `CREATE TABLE layoff_staging LIKE layoffs;
 INSERT INTO layoff_staging SELECT * FROM layoffs;`
  
