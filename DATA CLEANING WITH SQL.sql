@@ -1,6 +1,4 @@
--- REF # FROM https://youtu.be/4UltKCnnnTA?si=BDB65TspEN51fAzq
--- ALEX THE ANALYST
--- https://youtu.be/h6rwPz79yaU?si=jkYzzYSiqqlU_auy
+
 SELECT * FROM LAYOFFs;
 
 -- DATA CLEANING
