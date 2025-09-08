@@ -10,16 +10,14 @@ The workflow follows the systematic approach:-
 # PROJECT STEPS
 ## 1. Create Stage Tables
 Backed up raw data into staging table `layoff_staging`.
-
-`CREATE TABLE layoff_staging LIKE layoffs;`
-
-`INSERT INTO layoff_staging SELECT * FROM layoffs;`
-
+```SQL
+CREATE TABLE layoff_staging LIKE layoffs;
+INSERT INTO layoff_staging SELECT * FROM layoffs;
+```
  ## 2. Identify & Remove Duplicates
  Used `Row_Number()` with `Partition By` to identify duplicates.
  Created `layoff_staging2` to remove duplicates by keeping `row_num=1`.
-
- ```SQL
+```SQL
 WITH duplicate_cte AS (
   SELECT *, 
          ROW_NUMBER() OVER (
