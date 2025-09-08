@@ -14,6 +14,7 @@ Backed up raw data into staging table `layoff_staging`.
 CREATE TABLE layoff_staging LIKE layoffs;
 INSERT INTO layoff_staging SELECT * FROM layoffs;
 ```
+
  ## 2. Identify & Remove Duplicates
  Used `Row_Number()` with `Partition By` to identify duplicates.
  Created `layoff_staging2` to remove duplicates by keeping `row_num=1`.
@@ -29,3 +30,32 @@ WITH duplicate_cte AS (
 SELECT * FROM duplicate_cte WHERE row_num > 1;
 ```
 
+## 3. Standardize & Clean Data
+- Company names - Trimmed white spaces
+- Industry - Normalized variances (Crypto,Crypto Currency - Crypto)
+- Country - Fixed Inconsistencies (United States. - United States)
+- Date Column - Converted text to proper `DATE` format with `str_to_date()`
+- Dropped helper column after cleaning i.e `row_num`.
+
+## 4. Exploratory Data Analysis
+- Maximum Layoff
+- Yearly Total Layoff
+- Rolling Monthly Layoff
+- Company Layoff by Year (Ranked)
+
+---
+
+## KEY CONCEPT USED
+- Window Functions: `Row_Number()`, `Dense_Rank()`,`Sum()Over`
+- `CTE` for modular queries.
+- String function: Trim(), SubString()
+- Date Conversion: STR_TO_DATE()
+- Data CLeaning with UPDATE and DELETE.
+
+---
+## INSIGHTS FROM EDA 
+- **2022-2023** has highest number of layoff.
+- **Tech and Crypto** hit the hardest.
+- **Top Companies** like *Google,Meta and Amazon* frequently appear in top 5.
+
+ 
