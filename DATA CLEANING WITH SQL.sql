@@ -1,4 +1,6 @@
-
+-- SQL DATA CLEANING PROJECT
+-- Dataset from Kaggle
+-- Ref# https://www.kaggle.com/datasets/swaptr/layoffs-2022
 SELECT * FROM LAYOFFs;
 
 -- DATA CLEANING
